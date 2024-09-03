@@ -193,7 +193,7 @@ module.exports = function (Topics) {
 		const filterCids = params.cid && params.cid.map((cid) => parseInt(cid, 10));
 		const filterTags = params.tag && params.tag.map((tag) => String(tag));
 
-		function validtags(filterTags, topic) {
+		function validTags(filterTags, topic) {
 			if (!filterTags) {
 				return true;
 			} else {
