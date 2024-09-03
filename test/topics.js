@@ -1469,7 +1469,7 @@ describe('Topic\'s', () => {
 				done();
 			});
 		});
-
+		// comment
 		it('should return empty array if query is falsy', (done) => {
 			socketTopics.searchAndLoadTags({ uid: adminUid }, { query: '' }, (err, data) => {
 				assert.ifError(err);
