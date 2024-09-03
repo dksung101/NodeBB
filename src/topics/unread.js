@@ -23,7 +23,6 @@ module.exports = function (Topics) {
 		});
 		return counts && counts[filter];
 	};
-	console.log("Daniel Sung");
 	Topics.getUnreadTopics = async function (params) {
 		const unreadTopics = {
 			showSelect: true,
@@ -98,6 +97,7 @@ module.exports = function (Topics) {
 	};
 
 	async function getTids(params) {
+		console.log("Daniel Sung");
 		const counts = { "": 0, new: 0, watched: 0, unreplied: 0 };
 		const tidsByFilter = { "": [], new: [], watched: [], unreplied: [] };
 		const unreadCids = [];
