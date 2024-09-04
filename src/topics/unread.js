@@ -52,7 +52,7 @@ module.exports = function (Topics) {
 	};
 
 	Topics.unreadCutoff = async function (uid) {
-		const cutoff = Date.now() - (meta.config.unreadCutoff * 86400000);
+		const cutoff = Date.now() - meta.config.unreadCutoff * 86400000;
 		const data = await plugins.hooks.fire('filter:topics.unreadCutoff', {
 			uid: uid,
 			cutoff: cutoff,
@@ -193,10 +193,10 @@ module.exports = function (Topics) {
 		const filterTags = params.tag && params.tag.map(tag => String(tag));
 
 		function validTags(filterTags, topic) {
-			if (!filterTags) {
-				return true;
-			}
-			return filterTags.every(tag => topic.tags.find(topicTag => topicTag.value === tag));
+			return (
+				!filterTags ||
+				filterTags.every(tag => topic.tags.find(topicTag => topicTag.value === tag))
+			);
 		}
 
 		topicData.forEach((topic) => {
