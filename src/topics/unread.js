@@ -52,7 +52,7 @@ module.exports = function (Topics) {
 	};
 
 	Topics.unreadCutoff = async function (uid) {
-		const cutoff = Date.now() - meta.config.unreadCutoff * 86400000;
+		const cutoff = Date.now() - (meta.config.unreadCutoff * 86400000);
 		const data = await plugins.hooks.fire('filter:topics.unreadCutoff', {
 			uid: uid,
 			cutoff: cutoff,
